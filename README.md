@@ -1,98 +1,89 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+```markdown
+# Moimo-Back
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+모이모(Moimo)는 **실시간 모임 모집 및 채팅 플랫폼**입니다.  
+이 레포지토리는 백엔드 서버 코드로, 사용자 인증, 모임 관리, 실시간 채팅 기능을 제공합니다.
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🚀 주요 기능
+- 회원가입, 로그인, 로그아웃 (JWT 기반 인증/인가)
+- Google OAuth 소셜 로그인
+- 프로필 이미지 업로드 (Google Cloud Storage)
+- 모임 생성 및 참여 관리
+- WebSocket 기반 실시간 채팅
+- 데이터베이스 모델링 및 관리 (Prisma + PostgreSQL)
 
-## Project setup
+---
 
-```bash
-$ npm install
+## 🛠️ 기술 스택
+- **Backend Framework**: NestJS, Express
+- **Database**: PostgreSQL, Prisma ORM
+- **Authentication**: JWT, Google OAuth
+- **Real-time**: WebSocket
+- **Cloud**: Google Cloud Storage
+- **Deployment**: Vercel, Render
+- **Collaboration**: GitHub (PR, Branch 전략)
+
+---
+
+## 📂 프로젝트 구조
+```
+moimo-back/
+ ├── src/
+ │   ├── auth/        # 인증 및 인가 로직
+ │   ├── users/       # 사용자 관리
+ │   ├── meetings/    # 모임 관리
+ │   ├── chat/        # 실시간 채팅
+ │   └── main.ts      # 엔트리 포인트
+ ├── prisma/          # Prisma schema
+ ├── .env.example     # 환경 변수 예시
+ └── README.md
 ```
 
-## Compile and run the project
+---
 
+## ⚙️ 설치 및 실행 방법
+
+### 1. 레포지토리 클론
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+git clone https://github.com/KingJae6721/moimo-back.git
+cd moimo-back
 ```
 
-## Run tests
-
+### 2. 패키지 설치
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm install
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+### 3. 환경 변수 설정
+env 파일은 관리자에게 문의하세요!
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 4. 데이터베이스 마이그레이션
+```bash
+npx prisma migrate dev
+```
 
-## Resources
+### 5. 서버 실행
+```bash
+npm run start:dev
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+---
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## 📑 배운 점
+- NestJS 인증 구조와 JWT 기반 보안 처리
+- WebSocket을 통한 실시간 통신 구현
+- Google OAuth 및 Cloud Storage 연동 경험
+- Vercel/Render 배포 과정에서 로컬과 프로덕션 환경 차이 이해
+- GitHub 협업 (PR, 코드리뷰, 브랜치 전략)
 
-## Support
+---
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## 👥 팀 구성
+- Frontend: React, Vite, TanStack Query, Zustand, TailwindCSS
+- Backend: NestJS, Prisma, PostgreSQL
+- 팀원: 총 5명 (백엔드 2명, 프론트엔드 3명)
+```
