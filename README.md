@@ -1,5 +1,4 @@
 
-```markdown
 # Moimo-Back
 
 모이모(Moimo)는 **실시간 모임 모집 및 채팅 플랫폼**입니다.  
